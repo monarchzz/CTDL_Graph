@@ -10,7 +10,6 @@ using namespace std;
 // ---------------------------------------------------------------------------
 //                          const valriable
 // ---------------------------------------------------------------------------
-const int MAX=20;// tham so max khi khai bao
 const int MAX_IN=1000;
 const int TIME=1000;
 const int INT_MAX_N=1e8;
@@ -473,7 +472,7 @@ void DFS(int u){// O(n.n+max(n,m)) n so dinh m so canh																							DFS
 }
 void BFS(int u){								//																								BFS
 	Queue queue;
-	int *back= new int[MAX];
+	int *back= new int[NODE_MAX+2];
 	bool check[dt.stt_Node+1];
 	FOR(i,0,dt.stt_Node){
 		check[i]=false;
@@ -548,7 +547,7 @@ void Xoa_Canh(int **tmp,int u,int v){
 ////////////																																	LIEN THONG	
 int *TPLT_Num,*TPLT_Low,cnt,TPLT_Count;
 bool *TPLT_Connect;
-Queue TPLT_a[MAX];
+Queue TPLT_a[NODE_MAX+2];
 Stack st;
 void TPLT_dfs(int u){
 	TPLT_Low[u]=TPLT_Num[u]=cnt++;//gan thoi gian, dinh danh
@@ -576,10 +575,10 @@ int TPLT(int **tmp,bool f=true){
 	////init
 	cnt=0;// thoi gian
 	TPLT_Count=0; 
-	TPLT_Num=new int[MAX];// TPLT_Num[u] danh dau thoi gian diem ma u duoc tham -> Dinh Danh
-	TPLT_Low=new int[MAX];// TPLT_Low[u] dinh danh cua w bat ki. co duong di tu u -> w, w thuoc TPLT	
-	TPLT_Connect=new bool[MAX];//TPLT_Connect[u] kiem tra dinh u con trong do thi hay khong
-	bool check[MAX];
+	TPLT_Num=new int[NODE_MAX+2];// TPLT_Num[u] danh dau thoi gian diem ma u duoc tham -> Dinh Danh
+	TPLT_Low=new int[NODE_MAX+2];// TPLT_Low[u] dinh danh cua w bat ki. co duong di tu u -> w, w thuoc TPLT	
+	TPLT_Connect=new bool[NODE_MAX+2];//TPLT_Connect[u] kiem tra dinh u con trong do thi hay khong
+	bool check[NODE_MAX+2];
 	// tao danh sach ke
 	FOR(i,0,dt.stt_Node){
 		FOR(j,0,dt.stt_Node){
@@ -589,7 +588,7 @@ int TPLT(int **tmp,bool f=true){
 		}
 	}
 	// reset gia tri
-	FOR(i,0,MAX-1){
+	FOR(i,0,NODE_MAX+1){
 		TPLT_Num[i]=-1;
 		TPLT_Low[i]=0;
 		TPLT_Connect[i]=false;
