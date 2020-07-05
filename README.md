@@ -1,5 +1,5 @@
 # CTDL_Graph
-- Đề tài "Đồ Thị" môn cấu trúc dữ liệu và giải thuật phẩn Thầy Lưu Nguyễn Kỳ Thư
+- Đề tài "Đồ Thị" môn cấu trúc dữ liệu và giải thuật Thầy Lưu Nguyễn Kỳ Thư
 - Sử dụng WINBGI graphics
 # Tác giả
 - Nguyễn Trung Hiếu 
